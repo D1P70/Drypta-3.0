@@ -64,13 +64,24 @@
                     <a href="#services" class="text-gray-300 hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Solutions</a>
                     <a href="#cases" class="text-gray-300 hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Success Cases</a>
                     <a href="#about" class="text-gray-300 hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors duration-200">About Us</a>
-                    <button class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition duration-300">Get Started</button>
+                    <button onclick="scrollToContact()" class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition duration-300">Get Started</button>
                 </div>
                 <div class="-mr-2 flex items-center md:hidden">
-                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-300 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
-                        <i data-feather="menu"></i>
+                    <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-300 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false" onclick="toggleMobileMenu()">
+                        <i data-feather="menu" id="menu-icon"></i>
+                        <i data-feather="x" id="close-icon" class="hidden"></i>
                     </button>
                 </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900/95 backdrop-blur-sm border-b border-gray-700/50">
+                <a href="#services" onclick="closeMobileMenu()" class="text-gray-300 hover:text-indigo-400 hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Solutions</a>
+                <a href="#cases" onclick="closeMobileMenu()" class="text-gray-300 hover:text-indigo-400 hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Success Cases</a>
+                <a href="#about" onclick="closeMobileMenu()" class="text-gray-300 hover:text-indigo-400 hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">About Us</a>
+                <button onclick="scrollToContact(); closeMobileMenu();" class="w-full text-left bg-indigo-600 text-white hover:bg-indigo-700 block px-3 py-2 rounded-md text-base font-medium transition duration-300">Get Started</button>
             </div>
         </div>
     </nav>
@@ -752,7 +763,7 @@
                             </div>
                             <div>
                                 <p class="text-white font-medium text-sm">Message Us</p>
-                                <a href="tel:+1-555-DRYPTA-1" class="text-gray-300 hover:text-indigo-400 transition-colors duration-200 text-sm">+33 6 35 89 50 73</a>
+                                <a href="https://wa.me/33635895073" target="_blank" class="text-gray-300 hover:text-indigo-400 transition-colors duration-200 text-sm">+33 6 35 89 50 73</a>
                                 <br>
                                 <span class="text-gray-400 text-xs">24/7 Support Available</span>
                             </div>
@@ -802,6 +813,51 @@
         // Initialize feather icons
         feather.replace();
 
+        // Smooth scroll to contact section function
+        function scrollToContact() {
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Mobile menu toggle functions
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+            const menuButton = document.getElementById('mobile-menu-button');
+            
+            if (mobileMenu.classList.contains('hidden')) {
+                // Show mobile menu
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+                menuButton.setAttribute('aria-expanded', 'true');
+            } else {
+                // Hide mobile menu
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+                menuButton.setAttribute('aria-expanded', 'false');
+            }
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+            const menuButton = document.getElementById('mobile-menu-button');
+            
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+            menuButton.setAttribute('aria-expanded', 'false');
+        }
+
         // Initialize vanta.js globe background with error handling
         try {
             if (typeof VANTA !== 'undefined' && typeof THREE !== 'undefined') {
@@ -828,6 +884,8 @@
     </script>
 </body>
 </html>
+
+
 
 
 
