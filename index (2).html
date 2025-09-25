@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drypta Agents | AI Solutions for the Future</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Space Grotesk', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="https://cdn.hugeicons.com/font/hgi-stroke-rounded.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .globe-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .content-overlay {
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-100 bg-gradient-to-br from-gray-900 via-slate-900 to-indigo-950">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-gray-900/95 backdrop-blur-sm shadow-sm z-50 border-b border-gray-700/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <img src="/assets/logo.png" alt="Drypta Agents Logo" class="h-8 w-8 object-contain">
+                        <span class="ml-2 text-xl font-bold text-white">Drypta Agents</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#services" class="text-gray-300 hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Solutions</a>
+                    <a href="#cases" class="text-gray-300 hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Success Cases</a>
+                    <a href="#about" class="text-gray-300 hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors duration-200">About Us</a>
+                    <button class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition duration-300">Get Started</button>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-300 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div id="hero" class="relative pt-24 pb-20 hero-gradient text-white overflow-hidden">
+        <div class="globe-bg" id="globe-bg"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 content-overlay">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+                <div class="px-4 sm:px-6 sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left lg:flex lg:items-center">
+                    <div data-aos="fade-right">
+                        <h1 class="mt-4 text-4xl tracking-tight font-extrabold sm:mt-5 sm:leading-none lg:mt-6 lg:text-5xl xl:text-6xl">
+                            <span class="text-indigo-200">AI Agents that Empower.</span><br>
+                            <span class="text-white">Innovation that Lasts.</span>
+                        </h1>
+                        <p class="mt-3 text-base text-indigo-100 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                            We go beyond building AI — we're shaping the future of intelligence. Rooted in innovation, trust, and responsibility, we create technology that empowers people and businesses to achieve more.
+                        </p>
+                        <div class="mt-10 sm:flex sm:justify-center lg:justify-start">
+                            <div class="rounded-md shadow">
+                                <a href="#services" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+                                    Explore Solutions
+                                </a>
+                            </div>
+                            <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+                                <a href="#contact" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-700 bg-opacity-60 hover:bg-opacity-70 md:py-4 md:text-lg md:px-10">
+                                    Contact Us
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- AI-Powered Solutions Section -->
+    <section id="services" class="py-20 bg-gradient-to-br from-slate-800 via-gray-900 to-indigo-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                    AI-Powered <span class="text-indigo-400">Solutions</span>
+                </h2>
+                <p class="mt-4 max-w-3xl text-xl text-gray-300 mx-auto">
+                    Where intelligent automation meets advanced AI. We combine n8n's powerful workflow engine with cutting-edge AI models to deliver smarter, faster, and more efficient solutions that transform how your business operates.
+                </p>
+            </div>
+            
+            <!-- Benefits Overview -->
+            <div class="grid md:grid-cols-3 gap-6 mb-16" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-center">
+                    <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-500/20 text-green-400 mb-4">
+                        <i data-feather="zap"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Faster Implementation</h3>
+                    <p class="text-gray-300 text-sm">Deploy AI solutions in weeks, not months, using proven automation frameworks</p>
+                </div>
+                <div class="text-center">
+                    <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-blue-500/20 text-blue-400 mb-4">
+                        <i data-feather="target"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Smarter Operations</h3>
+                    <p class="text-gray-300 text-sm">AI-driven decision making integrated seamlessly into your existing workflows</p>
+                </div>
+                <div class="text-center">
+                    <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-purple-500/20 text-purple-400 mb-4">
+                        <i data-feather="trending-up"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Scalable Growth</h3>
+                    <p class="text-gray-300 text-sm">Solutions that grow with your business, adapting to new challenges automatically</p>
+                </div>
+            </div>
+
+            <!-- Solutions Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-800/60 backdrop-blur-sm rounded-xl shadow-lg border border-gray-700/50 overflow-hidden service-card transition duration-300 hover:bg-gray-800/80" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-6">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-md bg-indigo-500/20 text-indigo-400 mb-4">
+                            <i data-feather="cpu"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-white mb-2">Intelligent Agents</h3>
+                        <p class="text-gray-300">
+                            AI agents that autonomously handle complex tasks, make decisions, and learn from interactions—all orchestrated through n8n's visual workflows.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-gray-800/60 backdrop-blur-sm rounded-xl shadow-lg border border-gray-700/50 overflow-hidden service-card transition duration-300 hover:bg-gray-800/80" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-6">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-md bg-indigo-500/20 text-indigo-400 mb-4">
+                            <i data-feather="git-branch"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-white mb-2">Smart Automation</h3>
+                        <p class="text-gray-300">
+                            Beyond basic automation—workflows that adapt, predict, and optimize themselves using AI insights to maximize efficiency and reduce errors.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-gray-800/60 backdrop-blur-sm rounded-xl shadow-lg border border-gray-700/50 overflow-hidden service-card transition duration-300 hover:bg-gray-800/80" data-aos="fade-up" data-aos-delay="300">
+                    <div class="p-6">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-md bg-indigo-500/20 text-indigo-400 mb-4">
+                            <i data-feather="message-circle"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-white mb-2">Conversational AI</h3>
+                        <p class="text-gray-300">
+                            Advanced chatbots and virtual assistants that understand context, handle complex queries, and integrate with your business systems seamlessly.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-gray-800/60 backdrop-blur-sm rounded-xl shadow-lg border border-gray-700/50 overflow-hidden service-card transition duration-300 hover:bg-gray-800/80" data-aos="fade-up" data-aos-delay="400">
+                    <div class="p-6">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-md bg-indigo-500/20 text-indigo-400 mb-4">
+                            <i class="hgi-stroke hgi-ai-brain-01"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-white mb-2">Predictive Intelligence</h3>
+                        <p class="text-gray-300">
+                            Real-time data analysis and forecasting that helps you make informed decisions before problems arise, powered by integrated AI models.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-gray-800/60 backdrop-blur-sm rounded-xl shadow-lg border border-gray-700/50 overflow-hidden service-card transition duration-300 hover:bg-gray-800/80" data-aos="fade-up" data-aos-delay="500">
+                    <div class="p-6">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-md bg-indigo-500/20 text-indigo-400 mb-4">
+                            <i data-feather="database"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-white mb-2">Data Intelligence</h3>
+                        <p class="text-gray-300">
+                            Automated data pipelines that not only collect and process information but also generate actionable insights and recommendations automatically.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-gray-800/60 backdrop-blur-sm rounded-xl shadow-lg border border-gray-700/50 overflow-hidden service-card transition duration-300 hover:bg-gray-800/80" data-aos="fade-up" data-aos-delay="600">
+                    <div class="p-6">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-md bg-indigo-500/20 text-indigo-400 mb-4">
+                            <i data-feather="layers"></i>
+                        </div>
+                        <h3 class="text-lg font-medium text-white mb-2">Integration Platform</h3>
+                        <p class="text-gray-300">
+                            Connect any system, service, or AI model through n8n's extensive integration library, creating unified intelligent workflows across your entire tech stack.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Cases Section -->
+    <section id="cases" class="py-20 bg-gradient-to-br from-slate-800 via-gray-900 to-indigo-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                    Success <span class="text-indigo-400">Cases</span>
+                </h2>
+                <p class="mt-4 max-w-2xl text-xl text-gray-300 mx-auto">
+                    We measure success by the impact we create for our clients
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gray-800/60 backdrop-blur-sm rounded-xl shadow-lg border border-gray-700/50 overflow-hidden p-6 text-center hover:bg-gray-800/80 transition-all duration-300" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-indigo-500/20 text-indigo-400 mb-4">
+                        <i data-feather="trending-up"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-2">Business Growth</h3>
+                    <p class="text-gray-300">
+                        Helping startups scale faster with AI-powered automation and intelligent decision-making.
+                    </p>
+                </div>
+                <div class="bg-gray-800/60 backdrop-blur-sm rounded-xl shadow-lg border border-gray-700/50 overflow-hidden p-6 text-center hover:bg-gray-800/80 transition-all duration-300" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-indigo-500/20 text-indigo-400 mb-4">
+                        <i data-feather="clock"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-2">Time Savings</h3>
+                    <p class="text-gray-300">
+                        Cutting repetitive manual work by up to 60% through intelligent process automation.
+                    </p>
+                </div>
+                <div class="bg-gray-800/60 backdrop-blur-sm rounded-xl shadow-lg border border-gray-700/50 overflow-hidden p-6 text-center hover:bg-gray-800/80 transition-all duration-300" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-indigo-500/20 text-indigo-400 mb-4">
+                        <i data-feather="users"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-2">Customer Engagement</h3>
+                    <p class="text-gray-300">
+                        Boosting satisfaction through intelligent digital agents that provide 24/7 support.
+                    </p>
+                </div>
+                <div class="bg-gray-800/60 backdrop-blur-sm rounded-xl shadow-lg border border-gray-700/50 overflow-hidden p-6 text-center hover:bg-gray-800/80 transition-all duration-300" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-indigo-500/20 text-indigo-400 mb-4">
+                        <i data-feather="globe"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-2">Scalability</h3>
+                    <p class="text-gray-300">
+                        Supporting organizations across industries with adaptable, future-proof AI solutions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Identity Section -->
+    <section id="about" class="py-20 bg-gradient-to-br from-gray-900 via-slate-900 to-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-extrabold text-white sm:text-4xl mb-6">
+                    Our <span class="text-indigo-400">Identity</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                    At Drypta Agents, we go beyond building AI — we're shaping the future of intelligence. Rooted in innovation, trust, and responsibility, we create technology that empowers people and businesses to achieve more.
+                </p>
+            </div>
+            
+            <!-- Mission, Vision, Values Grid -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Mission -->
+                <div class="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/30 hover:border-indigo-400/50 transition-all duration-300 hover:bg-gray-800/60" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500/20 to-blue-500/20 text-indigo-400 mb-6 mx-auto">
+                        <i data-feather="target" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4 text-center">Mission</h3>
+                    <p class="text-gray-300 leading-relaxed text-center">
+                        Empowering businesses and individuals with autonomous AI agents that accelerate innovation, drive growth, and unlock new possibilities.
+                    </p>
+                </div>
+                
+                <!-- Vision -->
+                <div class="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/30 hover:border-indigo-400/50 transition-all duration-300 hover:bg-gray-800/60" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-purple-500/20 to-indigo-500/20 text-purple-400 mb-6 mx-auto">
+                        <i data-feather="eye" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4 text-center">Vision</h3>
+                    <p class="text-gray-300 leading-relaxed text-center">
+                        A future where humans and AI work seamlessly together to transform industries, strengthen communities, and make everyday life smarter and more efficient.
+                    </p>
+                </div>
+                
+                <!-- Core Values Preview -->
+                <div class="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/30 hover:border-indigo-400/50 transition-all duration-300 hover:bg-gray-800/60" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-blue-500/20 to-teal-500/20 text-blue-400 mb-6 mx-auto">
+                        <i data-feather="heart" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4 text-center">Core Values</h3>
+                    <p class="text-gray-300 leading-relaxed text-center">
+                        Innovation, Trust, Human-Centered design, Excellence, and Collaboration guide everything we do.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Core Values Detailed -->
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold text-white mb-12 text-center" data-aos="fade-up">Our Core Values</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Innovation -->
+                    <div class="group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center mb-4">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-500/20 to-blue-500/20 text-indigo-400 mr-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="hgi-stroke hgi-ai-innovation-01 text-lg"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white">Innovation</h4>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed pl-16">
+                            Pushing the boundaries of AI to create meaningful impact.
+                        </p>
+                    </div>
+                    
+                    <!-- Trust -->
+                    <div class="group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-center mb-4">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-green-500/20 to-teal-500/20 text-green-400 mr-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="hgi-stroke hgi-shield-01 text-lg"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white">Trust</h4>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed pl-16">
+                            Transparency, ethics, and reliability in everything we do.
+                        </p>
+                    </div>
+                    
+                    <!-- Human-Centered -->
+                    <div class="group" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex items-center mb-4">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 text-purple-400 mr-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="hgi-stroke hgi-user-group text-lg"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white">Human-Centered</h4>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed pl-16">
+                            Designing AI that enhances human potential, not replaces it.
+                        </p>
+                    </div>
+                    
+                    <!-- Excellence -->
+                    <div class="group" data-aos="fade-up" data-aos-delay="400">
+                        <div class="flex items-center mb-4">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-yellow-500/20 to-orange-500/20 text-yellow-400 mr-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="hgi-stroke hgi-star text-lg"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white">Excellence</h4>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed pl-16">
+                            Delivering high-quality, scalable, and impactful solutions.
+                        </p>
+                    </div>
+                    
+                    <!-- Collaboration -->
+                    <div class="group" data-aos="fade-up" data-aos-delay="500">
+                        <div class="flex items-center mb-4">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/20 text-blue-400 mr-4 group-hover:scale-110 transition-transform duration-300">
+                                <i class="hgi-stroke hgi-user-multiple text-lg"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white">Collaboration</h4>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed pl-16">
+                            Partnering with clients and communities for shared success.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="relative py-24 bg-gradient-to-br from-slate-900 via-gray-900 to-indigo-950 text-white overflow-hidden">
+        <!-- Professional background pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25% 25%, #6366f1 0%, transparent 50%), radial-gradient(circle at 75% 75%, #8b5cf6 0%, transparent 50%);"></div>
+        </div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header Section -->
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full mb-6">
+                    <i data-feather="message-circle" class="w-8 h-8 text-indigo-400"></i>
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6">
+                    Start Your AI <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Transformation</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    Schedule a strategic consultation with our AI experts. We'll analyze your business needs and design a customized roadmap for success.
+                </p>
+            </div>
+
+            <!-- Main Content Grid -->
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-start">
+                
+                <!-- Contact Information -->
+                <div class="mb-12 lg:mb-0" data-aos="fade-right">
+                    <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                        <h3 class="text-2xl font-semibold mb-8 flex items-center">
+                            <i data-feather="calendar" class="w-6 h-6 text-indigo-400 mr-3"></i>
+                            Why Partner With Us?
+                        </h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center mt-1">
+                                    <i data-feather="trending-up" class="w-5 h-5 text-indigo-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-white mb-2">Proven ROI</h4>
+                                    <p class="text-gray-300 text-sm">Average 300% return on AI investment within 12 months of implementation.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center mt-1">
+                                    <i data-feather="shield-check" class="w-5 h-5 text-indigo-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-white mb-2">Enterprise Security</h4>
+                                    <p class="text-gray-300 text-sm">SOC 2 Type II compliance with end-to-end encryption and audit trails.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 bg-indigo-500/20 rounded-lg flex items-center justify-center mt-1">
+                                    <i data-feather="users" class="w-5 h-5 text-indigo-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-white mb-2">Expert Team</h4>
+                                    <p class="text-gray-300 text-sm">PhD-level AI researchers and enterprise architects with 10+ years experience.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-8 border-t border-white/10">
+                            <div class="flex items-center justify-between text-sm text-gray-300">
+                                <span class="flex items-center">
+                                    <i data-feather="clock" class="w-4 h-4 mr-2 text-indigo-400"></i>
+                                    Response within 2 hours
+                                </span>
+                                <span class="flex items-center">
+                                    <i data-feather="check-circle" class="w-4 h-4 mr-2 text-green-400"></i>
+                                    Free consultation
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Professional Contact Form -->
+                <div data-aos="fade-left">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                        <h3 class="text-2xl font-semibold mb-6 text-white">Request Consultation</h3>
+                        
+                        <form class="space-y-6" id="contactForm">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="firstName" class="block text-sm font-medium text-gray-300 mb-2">First Name *</label>
+                                    <input 
+                                        id="firstName" 
+                                        name="firstName" 
+                                        type="text" 
+                                        required 
+                                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200" 
+                                        placeholder="John"
+                                    >
+                                </div>
+                                <div>
+                                    <label for="lastName" class="block text-sm font-medium text-gray-300 mb-2">Last Name *</label>
+                                    <input 
+                                        id="lastName" 
+                                        name="lastName" 
+                                        type="text" 
+                                        required 
+                                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200" 
+                                        placeholder="Smith"
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Business Email *</label>
+                                    <input 
+                                        id="email" 
+                                        name="email" 
+                                        type="email" 
+                                        required 
+                                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200" 
+                                        placeholder="john@company.com"
+                                    >
+                                </div>
+                                <div>
+                                    <label for="company" class="block text-sm font-medium text-gray-300 mb-2">Company *</label>
+                                    <input 
+                                        id="company" 
+                                        name="company" 
+                                        type="text" 
+                                        required 
+                                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200" 
+                                        placeholder="Company Inc."
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium text-gray-300 mb-2">Phone Number</label>
+                                    <input 
+                                        id="phone" 
+                                        name="phone" 
+                                        type="tel" 
+                                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200" 
+                                        placeholder="+1 (555) 123-4567"
+                                    >
+                                </div>
+                                <div>
+                                    <label for="budget" class="block text-sm font-medium text-gray-300 mb-2">Project Budget</label>
+                                    <select 
+                                        id="budget" 
+                                        name="budget" 
+                                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+                                    >
+                                        <option value="">Select budget range</option>
+                                        <option value="10k-50k">$10K - $50K</option>
+                                        <option value="50k-100k">$50K - $100K</option>
+                                        <option value="100k-500k">$100K - $500K</option>
+                                        <option value="500k+">$500K+</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="projectType" class="block text-sm font-medium text-gray-300 mb-2">Project Interest</label>
+                                <select 
+                                    id="projectType" 
+                                    name="projectType" 
+                                    required
+                                    class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+                                >
+                                    <option value="">Select your primary interest</option>
+                                    <option value="autonomous-agents">Autonomous AI Agents</option>
+                                    <option value="workflow-automation">Workflow Automation</option>
+                                    <option value="data-intelligence">Data Intelligence & Analytics</option>
+                                    <option value="conversational-ai">Conversational AI Systems</option>
+                                    <option value="custom-solution">Custom AI Solution</option>
+                                    <option value="consultation">Strategic AI Consultation</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Project Details *</label>
+                                <textarea 
+                                    id="message" 
+                                    name="message" 
+                                    rows="4" 
+                                    required 
+                                    class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 resize-none" 
+                                    placeholder="Describe your current challenges and what you'd like to achieve with AI..."
+                                ></textarea>
+                            </div>
+
+                            <div class="flex items-start space-x-3">
+                                <input 
+                                    id="agree" 
+                                    name="agree" 
+                                    type="checkbox" 
+                                    required
+                                    class="w-4 h-4 mt-1 bg-white/10 border border-white/20 rounded focus:ring-indigo-500 focus:ring-2"
+                                >
+                                <label for="agree" class="text-sm text-gray-300">
+                                    I agree to the <a href="#" class="text-indigo-400 hover:text-indigo-300 underline">Terms of Service</a> and <a href="#" class="text-indigo-400 hover:text-indigo-300 underline">Privacy Policy</a>
+                                </label>
+                            </div>
+
+                            <button 
+                                type="submit" 
+                                class="w-full group relative overflow-hidden bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-4 px-8 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            >
+                                <span class="relative z-10 flex items-center justify-center">
+                                    <i data-feather="send" class="w-5 h-5 mr-2"></i>
+                                    Schedule Free Consultation
+                                </span>
+                                <div class="absolute inset-0 bg-gradient-to-r from-indigo-700 to-purple-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                            </button>
+
+                            <p class="text-xs text-gray-400 text-center">
+                                By submitting this form, you'll receive a response within 2 business hours.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-indigo-900 text-white overflow-hidden">
+        <!-- Gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-900/20 via-purple-900/20 to-pink-900/20"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                
+                <!-- Company Info Column -->
+                <div class="lg:col-span-1">
+                    <div class="mb-6">
+                        <div class="flex items-center mb-4">
+                            <img src="/assets/logo.png" alt="Drypta Agents Logo" class="h-10 w-10 object-contain">
+                            <span class="ml-3 text-2xl font-bold text-white">Drypta Agents</span>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            Pioneers of the Agent Era, creating intelligent AI solutions that think, learn, and act independently to transform businesses worldwide.
+                        </p>
+                    </div>
+                    
+                    <!-- Social Icons -->
+                    <div class="flex space-x-4">
+                        <a href="https://x.com/drypta_ai" class="group">
+                            <div class="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-indigo-500 group-hover:scale-110 group-hover:shadow-lg">
+                                <i data-feather="twitter" class="w-5 h-5 text-gray-300 group-hover:text-white"></i>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/company/108890515" class="group">
+                            <div class="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-indigo-500 group-hover:scale-110 group-hover:shadow-lg">
+                                <i data-feather="linkedin" class="w-5 h-5 text-gray-300 group-hover:text-white"></i>
+                            </div>
+                        </a>
+                        <a href="https://github.com/D1P70" class="group">
+                            <div class="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-indigo-500 group-hover:scale-110 group-hover:shadow-lg">
+                                <i data-feather="github" class="w-5 h-5 text-gray-300 group-hover:text-white"></i>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+
+                <!-- Our Approach Column -->
+                <div class="lg:col-span-1">
+                    <h3 class="text-lg font-semibold text-white mb-6 flex items-center">
+                        <i data-feather="globe" class="w-5 h-5 text-indigo-400 mr-2"></i>
+                        Our Approach
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-indigo-500/20 rounded-lg flex items-center justify-center mt-0.5">
+                                <i data-feather="users" class="w-4 h-4 text-indigo-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-medium text-sm">Remote First</p>
+                                <p class="text-gray-300 text-sm">Global team, local expertise</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-indigo-500/20 rounded-lg flex items-center justify-center mt-0.5">
+                                <i data-feather="clock" class="w-4 h-4 text-indigo-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-medium text-sm">Available 24/7</p>
+                                <p class="text-gray-300 text-sm">Timezone-flexible support</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-indigo-500/20 rounded-lg flex items-center justify-center mt-0.5">
+                                <i data-feather="zap" class="w-4 h-4 text-indigo-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-medium text-sm">Agile Delivery</p>
+                                <p class="text-gray-300 text-sm">Fast, iterative solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="lg:col-span-1">
+                    <h3 class="text-lg font-semibold text-white mb-6 flex items-center">
+                        <i data-feather="zap" class="w-5 h-5 text-indigo-400 mr-2"></i>
+                        Quick Links
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-gray-300 hover:text-indigo-400 transition-colors duration-200 text-sm flex items-center group">
+                            <i data-feather="arrow-right" class="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-all duration-200 transform -translate-x-2 group-hover:translate-x-0"></i>
+                            AI Solutions
+                        </a></li>
+                        <li><a href="#cases" class="text-gray-300 hover:text-indigo-400 transition-colors duration-200 text-sm flex items-center group">
+                            <i data-feather="arrow-right" class="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-all duration-200 transform -translate-x-2 group-hover:translate-x-0"></i>
+                            Success Cases
+                        </a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-indigo-400 transition-colors duration-200 text-sm flex items-center group">
+                            <i data-feather="arrow-right" class="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-all duration-200 transform -translate-x-2 group-hover:translate-x-0"></i>
+                            About Us
+                        </a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-indigo-400 transition-colors duration-200 text-sm flex items-center group">
+                            <i data-feather="arrow-right" class="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-all duration-200 transform -translate-x-2 group-hover:translate-x-0"></i>
+                            Privacy Policy
+                        </a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-indigo-400 transition-colors duration-200 text-sm flex items-center group">
+                            <i data-feather="arrow-right" class="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-all duration-200 transform -translate-x-2 group-hover:translate-x-0"></i>
+                            Terms of Service
+                        </a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info Column -->
+                <div class="lg:col-span-1">
+                    <h3 class="text-lg font-semibold text-white mb-6 flex items-center">
+                        <i data-feather="phone" class="w-5 h-5 text-indigo-400 mr-2"></i>
+                        Contact Info
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-indigo-500/20 rounded-lg flex items-center justify-center mt-0.5">
+                                <i data-feather="mail" class="w-4 h-4 text-indigo-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-white font-medium text-sm">Email Us</p>
+                                <a href="mailto:support@drypta.com" class="text-gray-300 hover:text-indigo-400 transition-colors duration-200 text-sm">support@drypta.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-indigo-500/20 rounded-lg flex items-center justify-center mt-0.5">
+                                <svg class="w-4 h-4 text-indigo-400" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.787"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-white font-medium text-sm">Message Us</p>
+                                <a href="tel:+1-555-DRYPTA-1" class="text-gray-300 hover:text-indigo-400 transition-colors duration-200 text-sm">+33 6 35 89 50 73</a>
+                                <br>
+                                <span class="text-gray-400 text-xs">24/7 Support Available</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-2">
+                            <a href="#contact" class="inline-flex items-center bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                                <i data-feather="send" class="w-4 h-4 mr-2"></i>
+                                Get in Touch
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="mt-12 pt-8 border-t border-gray-700/50">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="flex items-center">
+                        <img src="/assets/logo.png" alt="Drypta Agents Logo" class="h-6 w-6 object-contain">
+                        <span class="ml-2 text-lg font-semibold text-white" style="font-weight: bold;">Drypta Agents</span>
+                        <span class="ml-3 text-gray-400 text-sm" style="font-weight: bold;">© 2025 All rights reserved.</span>
+                    </div>
+                    <div class="flex items-center space-x-6 text-sm text-gray-400">
+                        <span class="flex items-center">
+                            <i data-feather="shield" class="w-4 h-4 mr-1 text-indigo-400"></i>
+                            SOC 2 Compliant
+                        </span>
+                        <span class="flex items-center">
+                            <i data-feather="lock" class="w-4 h-4 mr-1 text-indigo-400"></i>
+                            Enterprise Security
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Initialize feather icons
+        feather.replace();
+
+        // Initialize vanta.js globe background with error handling
+        try {
+            if (typeof VANTA !== 'undefined' && typeof THREE !== 'undefined') {
+                VANTA.GLOBE({
+                    el: "#globe-bg",
+                    mouseControls: true,
+                    touchControls: true,
+                    gyroControls: false,
+                    minHeight: 200.00,
+                    minWidth: 200.00,
+                    scale: 1.00,
+                    scaleMobile: 1.00,
+                    color: 0x7b8aff,
+                    color2: 0xa777e3,
+                    backgroundColor: 0x0,
+                    size: 0.8
+                });
+            } else {
+                console.warn('VANTA.js or THREE.js not loaded properly. Globe background disabled.');
+            }
+        } catch (error) {
+            console.error('Error initializing VANTA globe:', error);
+        }
+    </script>
+</body>
+</html>
