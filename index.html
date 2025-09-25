@@ -47,6 +47,110 @@
             position: relative;
             z-index: 10;
         }
+        
+        /* Fix dropdown background and z-index issues */
+        select {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(99, 102, 241, 0.5) !important;
+            position: relative;
+            z-index: 100;
+        }
+        
+        select option {
+            background-color: rgba(17, 24, 39, 0.95) !important;
+            color: white !important;
+            padding: 8px 12px;
+            border: none;
+        }
+        
+        select:focus {
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            border-color: rgba(99, 102, 241, 1) !important;
+            outline: none;
+            z-index: 200;
+        }
+        
+        /* Enhanced form container to prevent background bleed */
+        #contactForm {
+            position: relative;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Enhanced section styling for prominent display */
+        .enhanced-section {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .enhanced-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.6), transparent);
+            animation: shimmer 2s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        
+        .enhanced-section:hover {
+            border-color: rgba(99, 102, 241, 0.5);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.2);
+        }
+        
+        /* Mobile menu z-index fix */
+        #mobile-menu {
+            z-index: 9999 !important;
+            position: relative;
+        }
+        
+        /* Navigation bar enhanced z-index */
+        nav {
+            z-index: 1000 !important;
+        }
+        
+        /* Fix potential backdrop issues */
+        .backdrop-blur-sm {
+            backdrop-filter: blur(4px) !important;
+        }
+        
+        /* Ensure proper layering for interactive elements */
+        button, input, textarea, select {
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Fix any potential background color inheritance */
+        body {
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        
+        /* Prevent background flickering on mobile */
+        @media (max-width: 768px) {
+            body {
+                background-attachment: scroll;
+            }
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-gray-100 bg-gradient-to-br from-gray-900 via-slate-900 to-indigo-950">
@@ -536,49 +640,80 @@
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <div>
-                                    <label for="phone" class="block text-sm font-medium text-gray-300 mb-2">Phone Number</label>
-                                    <input 
-                                        id="phone" 
-                                        name="phone" 
-                                        type="tel" 
-                                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200" 
-                                        placeholder="+1 (555) 123-4567"
-                                    >
-                                </div>
-                                <div>
-                                    <label for="budget" class="block text-sm font-medium text-gray-300 mb-2">Project Budget</label>
-                                    <select 
-                                        id="budget" 
-                                        name="budget" 
-                                        class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
-                                    >
-                                        <option value="">Select budget range</option>
-                                        <option value="10k-50k">$10K - $50K</option>
-                                        <option value="50k-100k">$50K - $100K</option>
-                                        <option value="100k-500k">$100K - $500K</option>
-                                        <option value="500k+">$500K+</option>
-                                    </select>
-                                </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-300 mb-2">Phone Number</label>
+                                <input 
+                                    id="phone" 
+                                    name="phone" 
+                                    type="tel" 
+                                    class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200" 
+                                    placeholder="+1 (555) 123-4567"
+                                >
                             </div>
 
-                            <div>
-                                <label for="projectType" class="block text-sm font-medium text-gray-300 mb-2">Project Interest</label>
+                            <!-- Project Budget Section -->
+                            <div class="bg-gradient-to-r from-indigo-500/15 to-purple-500/15 border border-indigo-400/40 rounded-lg p-4 backdrop-blur-sm">
+                                <label for="budget" class="block text-lg font-semibold text-white mb-2 flex items-center">
+                                    <i data-feather="dollar-sign" class="w-5 h-5 text-indigo-400 mr-2"></i>
+                                    Project Investment
+                                </label>
+                                <select 
+                                    id="budget" 
+                                    name="budget" 
+                                    onchange="toggleCustomBudget(this.value)"
+                                    class="w-full px-4 py-3 bg-white/15 border border-indigo-400/50 rounded-lg text-white font-medium focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
+                                    style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;"
+                                >
+                                    <option value="">Select investment range</option>
+                                    <option value="100-500">€100 – €500</option>
+                                    <option value="500-1000">€500 – €1,000</option>
+                                    <option value="2000-3000">€2,000 – €3,000</option>
+                                    <option value="5000-10000">€5,000 – €10,000</option>
+                                    <option value="10000+">€10,000+</option>
+                                    <option value="custom">Custom Budget Range</option>
+                                </select>
+                                <input 
+                                    id="customBudget" 
+                                    name="customBudget" 
+                                    type="text" 
+                                    placeholder="Specify your custom budget range..."
+                                    class="w-full px-4 py-3 bg-white/10 border border-indigo-400/50 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 transition-all duration-200 mt-3 hidden font-medium" 
+                                    style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;"
+                                >
+                            </div>
+
+                            <!-- Project Interest Section -->
+                            <div class="bg-gradient-to-r from-purple-500/15 to-blue-500/15 border border-purple-400/40 rounded-lg p-4 backdrop-blur-sm">
+                                <label for="projectType" class="block text-lg font-semibold text-white mb-2 flex items-center">
+                                    <i data-feather="target" class="w-5 h-5 text-purple-400 mr-2"></i>
+                                    Areas of Interest *
+                                </label>
                                 <select 
                                     id="projectType" 
                                     name="projectType" 
                                     required
-                                    class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
+                                    onchange="toggleCustomProject(this.value)"
+                                    class="w-full px-4 py-3 bg-white/15 border border-purple-400/50 rounded-lg text-white font-medium focus:ring-2 focus:ring-purple-500 transition-all duration-200"
+                                    style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;"
                                 >
-                                    <option value="">Select your primary interest</option>
+                                    <option value="">Choose focus area</option>
                                     <option value="autonomous-agents">Autonomous AI Agents</option>
                                     <option value="workflow-automation">Workflow Automation</option>
                                     <option value="data-intelligence">Data Intelligence & Analytics</option>
                                     <option value="conversational-ai">Conversational AI Systems</option>
-                                    <option value="custom-solution">Custom AI Solution</option>
+                                    <option value="predictive-analytics">Predictive Analytics</option>
+                                    <option value="integration-platform">AI Integration Platform</option>
                                     <option value="consultation">Strategic AI Consultation</option>
+                                    <option value="custom">Custom Project Specification</option>
                                 </select>
+                                <input 
+                                    id="customProject" 
+                                    name="customProject" 
+                                    type="text" 
+                                    placeholder="Describe your project requirements..."
+                                    class="w-full px-4 py-3 bg-white/10 border border-purple-400/50 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-500 transition-all duration-200 mt-3 hidden font-medium" 
+                                    style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;"
+                                >
                             </div>
 
                             <div>
@@ -858,10 +993,33 @@
             menuButton.setAttribute('aria-expanded', 'false');
         }
 
-        // Initialize vanta.js globe background with error handling
+        // Custom budget and project toggle functions
+        function toggleCustomBudget(value) {
+            const customBudgetInput = document.getElementById('customBudget');
+            if (value === 'custom') {
+                customBudgetInput.classList.remove('hidden');
+                customBudgetInput.focus();
+            } else {
+                customBudgetInput.classList.add('hidden');
+                customBudgetInput.value = '';
+            }
+        }
+
+        function toggleCustomProject(value) {
+            const customProjectInput = document.getElementById('customProject');
+            if (value === 'custom') {
+                customProjectInput.classList.remove('hidden');
+                customProjectInput.focus();
+            } else {
+                customProjectInput.classList.add('hidden');
+                customProjectInput.value = '';
+            }
+        }
+
+        // Initialize vanta.js globe background with enhanced error handling and layering
         try {
             if (typeof VANTA !== 'undefined' && typeof THREE !== 'undefined') {
-                VANTA.GLOBE({
+                const vantaEffect = VANTA.GLOBE({
                     el: "#globe-bg",
                     mouseControls: true,
                     touchControls: true,
@@ -875,15 +1033,58 @@
                     backgroundColor: 0x0,
                     size: 0.8
                 });
+                
+                // Ensure the globe background doesn't interfere with form elements
+                const globeContainer = document.getElementById('globe-bg');
+                if (globeContainer) {
+                    globeContainer.style.pointerEvents = 'none';
+                    globeContainer.style.zIndex = '0';
+                    globeContainer.style.position = 'absolute';
+                }
             } else {
                 console.warn('VANTA.js or THREE.js not loaded properly. Globe background disabled.');
+                // Add fallback gradient background
+                const globeBg = document.getElementById('globe-bg');
+                if (globeBg) {
+                    globeBg.style.background = 'radial-gradient(circle at 30% 40%, rgba(123, 138, 255, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(167, 119, 227, 0.3) 0%, transparent 50%)';
+                    globeBg.style.pointerEvents = 'none';
+                    globeBg.style.zIndex = '0';
+                }
             }
         } catch (error) {
             console.error('Error initializing VANTA globe:', error);
+            // Enhanced fallback handling
+            const globeBg = document.getElementById('globe-bg');
+            if (globeBg) {
+                globeBg.style.background = 'radial-gradient(circle at 30% 40%, rgba(123, 138, 255, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(167, 119, 227, 0.3) 0%, transparent 50%)';
+                globeBg.style.pointerEvents = 'none';
+                globeBg.style.zIndex = '0';
+            }
         }
+        
+        // Additional background stability fixes
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ensure all interactive elements have proper z-index
+            const interactiveElements = document.querySelectorAll('select, input, textarea, button, a');
+            interactiveElements.forEach(element => {
+                if (!element.style.zIndex) {
+                    element.style.position = 'relative';
+                    element.style.zIndex = '10';
+                }
+            });
+            
+            // Fix any potential backdrop filter issues
+            const backdropElements = document.querySelectorAll('.backdrop-blur-sm');
+            backdropElements.forEach(element => {
+                element.style.webkitBackdropFilter = 'blur(4px)';
+                element.style.backdropFilter = 'blur(4px)';
+            });
+        });
     </script>
 </body>
 </html>
+
+
 
 
 
