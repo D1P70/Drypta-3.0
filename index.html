@@ -165,10 +165,42 @@
                     </div>
                 </div>
                 <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
-                    <a href="#services" class="text-gray-300 hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Solutions</a>
-                    <a href="#cases" class="text-gray-300 hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors duration-200">Success Cases</a>
-                    <a href="#about" class="text-gray-300 hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors duration-200">About Us</a>
-                    <button onclick="scrollToContact()" class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition duration-300">Get Started</button>
+                    <a href="#services" class="text-gray-300 hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors duration-200" data-i18n="nav.solutions">Solutions</a>
+                    <a href="#cases" class="text-gray-300 hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors duration-200" data-i18n="nav.success_cases">Success Cases</a>
+                    <a href="#about" class="text-gray-300 hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors duration-200" data-i18n="nav.about_us">About Us</a>
+                    
+                    <!-- Language Dropdown -->
+                    <div class="relative">
+                        <button id="languageToggle" class="flex items-center text-gray-300 hover:text-indigo-400 px-3 py-2 text-sm font-medium transition-colors duration-200">
+                            <i data-feather="globe" class="w-4 h-4 mr-2"></i>
+                            <span id="currentLang">EN</span>
+                            <i data-feather="chevron-down" class="w-4 h-4 ml-1"></i>
+                        </button>
+                        <div id="languageDropdown" class="absolute right-0 mt-2 w-48 bg-gray-800 rounded-md shadow-lg z-50 hidden border border-gray-700">
+                            <div class="py-2">
+                                <button onclick="changeLanguage('en')" class="flex items-center w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white transition-colors">
+                                    <span class="mr-3">🇺🇸</span>English
+                                </button>
+                                <button onclick="changeLanguage('pt')" class="flex items-center w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white transition-colors">
+                                    <span class="mr-3">🇵🇹</span>Português
+                                </button>
+                                <button onclick="changeLanguage('fr')" class="flex items-center w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white transition-colors">
+                                    <span class="mr-3">🇫🇷</span>Français
+                                </button>
+                                <button onclick="changeLanguage('it')" class="flex items-center w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white transition-colors">
+                                    <span class="mr-3">🇮🇹</span>Italiano
+                                </button>
+                                <button onclick="changeLanguage('es')" class="flex items-center w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white transition-colors">
+                                    <span class="mr-3">🇪🇸</span>Español
+                                </button>
+                                <button onclick="changeLanguage('de')" class="flex items-center w-full px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white transition-colors">
+                                    <span class="mr-3">🇩🇪</span>Deutsch
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button onclick="scrollToContact()" class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700 transition duration-300" data-i18n="nav.get_started">Get Started</button>
                 </div>
                 <div class="-mr-2 flex items-center md:hidden">
                     <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-300 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false" onclick="toggleMobileMenu()">
@@ -182,10 +214,23 @@
         <!-- Mobile menu, show/hide based on menu state. -->
         <div id="mobile-menu" class="md:hidden hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900/95 backdrop-blur-sm border-b border-gray-700/50">
-                <a href="#services" onclick="closeMobileMenu()" class="text-gray-300 hover:text-indigo-400 hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Solutions</a>
-                <a href="#cases" onclick="closeMobileMenu()" class="text-gray-300 hover:text-indigo-400 hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">Success Cases</a>
-                <a href="#about" onclick="closeMobileMenu()" class="text-gray-300 hover:text-indigo-400 hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200">About Us</a>
-                <button onclick="scrollToContact(); closeMobileMenu();" class="w-full text-left bg-indigo-600 text-white hover:bg-indigo-700 block px-3 py-2 rounded-md text-base font-medium transition duration-300">Get Started</button>
+                <a href="#services" onclick="closeMobileMenu()" class="text-gray-300 hover:text-indigo-400 hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200" data-i18n="nav.solutions">Solutions</a>
+                <a href="#cases" onclick="closeMobileMenu()" class="text-gray-300 hover:text-indigo-400 hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200" data-i18n="nav.success_cases">Success Cases</a>
+                <a href="#about" onclick="closeMobileMenu()" class="text-gray-300 hover:text-indigo-400 hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200" data-i18n="nav.about_us">About Us</a>
+                
+                <!-- Mobile Language Selection -->
+                <div class="px-3 py-2">
+                    <select onchange="changeLanguage(this.value)" class="w-full bg-gray-800 text-gray-300 border border-gray-600 rounded-md px-3 py-2 text-sm">
+                        <option value="en">🇺🇸 English</option>
+                        <option value="pt">🇵🇹 Português</option>
+                        <option value="fr">🇫🇷 Français</option>
+                        <option value="it">🇮🇹 Italiano</option>
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="de">🇩🇪 Deutsch</option>
+                    </select>
+                </div>
+                
+                <button onclick="scrollToContact(); closeMobileMenu();" class="w-full text-left bg-indigo-600 text-white hover:bg-indigo-700 block px-3 py-2 rounded-md text-base font-medium transition duration-300" data-i18n="nav.get_started">Get Started</button>
             </div>
         </div>
     </nav>
@@ -198,20 +243,20 @@
                 <div class="px-4 sm:px-6 sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left lg:flex lg:items-center">
                     <div data-aos="fade-right">
                         <h1 class="mt-4 text-4xl tracking-tight font-extrabold sm:mt-5 sm:leading-none lg:mt-6 lg:text-5xl xl:text-6xl">
-                            <span class="text-indigo-200">AI Agents that Empower.</span><br>
-                            <span class="text-white">Innovation that Lasts.</span>
+                            <span class="text-indigo-200" data-i18n="hero.title_part1">AI Agents that Empower.</span><br>
+                            <span class="text-white" data-i18n="hero.title_part2">Innovation that Lasts.</span>
                         </h1>
-                        <p class="mt-3 text-base text-indigo-100 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                        <p class="mt-3 text-base text-indigo-100 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0" data-i18n="hero.description">
                             We go beyond building AI — we're shaping the future of intelligence. Rooted in innovation, trust, and responsibility, we create technology that empowers people and businesses to achieve more.
                         </p>
                         <div class="mt-10 sm:flex sm:justify-center lg:justify-start">
                             <div class="rounded-md shadow">
-                                <a href="#services" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+                                <a href="#services" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10" data-i18n="hero.cta_primary">
                                     Explore Solutions
                                 </a>
                             </div>
                             <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                                <a href="#contact" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-700 bg-opacity-60 hover:bg-opacity-70 md:py-4 md:text-lg md:px-10">
+                                <a href="#contact" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-700 bg-opacity-60 hover:bg-opacity-70 md:py-4 md:text-lg md:px-10" data-i18n="hero.cta_secondary">
                                     Contact Us
                                 </a>
                             </div>
@@ -227,10 +272,10 @@
     <section id="services" class="py-20 bg-gradient-to-br from-slate-800 via-gray-900 to-indigo-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                <h2 class="text-3xl font-extrabold text-white sm:text-4xl" data-i18n="solutions.title">
                     AI-Powered <span class="text-indigo-400">Solutions</span>
                 </h2>
-                <p class="mt-4 max-w-3xl text-xl text-gray-300 mx-auto">
+                <p class="mt-4 max-w-3xl text-xl text-gray-300 mx-auto" data-i18n="solutions.subtitle">
                     Where intelligent automation meets advanced AI. We combine n8n's powerful workflow engine with cutting-edge AI models to deliver smarter, faster, and more efficient solutions that transform how your business operates.
                 </p>
             </div>
@@ -241,22 +286,22 @@
                     <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-500/20 text-green-400 mb-4">
                         <i data-feather="zap"></i>
                     </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">Faster Implementation</h3>
-                    <p class="text-gray-300 text-sm">Deploy AI solutions in weeks, not months, using proven automation frameworks</p>
+                    <h3 class="text-lg font-semibold text-white mb-2" data-i18n="solutions.benefit1.title">Faster Implementation</h3>
+                    <p class="text-gray-300 text-sm" data-i18n="solutions.benefit1.desc">Deploy AI solutions in weeks, not months, using proven automation frameworks</p>
                 </div>
                 <div class="text-center">
                     <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-blue-500/20 text-blue-400 mb-4">
                         <i data-feather="target"></i>
                     </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">Smarter Operations</h3>
-                    <p class="text-gray-300 text-sm">AI-driven decision making integrated seamlessly into your existing workflows</p>
+                    <h3 class="text-lg font-semibold text-white mb-2" data-i18n="solutions.benefit2.title">Smarter Operations</h3>
+                    <p class="text-gray-300 text-sm" data-i18n="solutions.benefit2.desc">AI-driven decision making integrated seamlessly into your existing workflows</p>
                 </div>
                 <div class="text-center">
                     <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-purple-500/20 text-purple-400 mb-4">
                         <i data-feather="trending-up"></i>
                     </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">Scalable Growth</h3>
-                    <p class="text-gray-300 text-sm">Solutions that grow with your business, adapting to new challenges automatically</p>
+                    <h3 class="text-lg font-semibold text-white mb-2" data-i18n="solutions.benefit3.title">Scalable Growth</h3>
+                    <p class="text-gray-300 text-sm" data-i18n="solutions.benefit3.desc">Solutions that grow with your business, adapting to new challenges automatically</p>
                 </div>
             </div>
 
@@ -518,10 +563,10 @@
                 <div class="inline-flex items-center justify-center w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full mb-6">
                     <i data-feather="message-circle" class="w-8 h-8 text-indigo-400"></i>
                 </div>
-                <h2 class="text-4xl lg:text-5xl font-bold mb-6">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6" data-i18n="contact.title">
                     Start Your AI <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Transformation</span>
                 </h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed" data-i18n="contact.subtitle">
                     Schedule a strategic consultation with our AI experts. We'll analyze your business needs and design a customized roadmap for success.
                 </p>
             </div>
@@ -587,12 +632,12 @@
                 <!-- Professional Contact Form -->
                 <div data-aos="fade-left">
                     <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-                        <h3 class="text-2xl font-semibold mb-6 text-white">Request Consultation</h3>
+                        <h3 class="text-2xl font-semibold mb-6 text-white" data-i18n="contact.consultation_title">Request Consultation</h3>
                         
                         <form class="space-y-6" id="contactForm">
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div>
-                                    <label for="firstName" class="block text-sm font-medium text-gray-300 mb-2">First Name *</label>
+                                    <label for="firstName" class="block text-sm font-medium text-gray-300 mb-2" data-i18n="contact.firstname">First Name *</label>
                                     <input 
                                         id="firstName" 
                                         name="firstName" 
@@ -603,7 +648,7 @@
                                     >
                                 </div>
                                 <div>
-                                    <label for="lastName" class="block text-sm font-medium text-gray-300 mb-2">Last Name *</label>
+                                    <label for="lastName" class="block text-sm font-medium text-gray-300 mb-2" data-i18n="contact.lastname">Last Name *</label>
                                     <input 
                                         id="lastName" 
                                         name="lastName" 
@@ -617,7 +662,7 @@
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div>
-                                    <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Business Email *</label>
+                                    <label for="email" class="block text-sm font-medium text-gray-300 mb-2" data-i18n="contact.email">Business Email *</label>
                                     <input 
                                         id="email" 
                                         name="email" 
@@ -628,7 +673,7 @@
                                     >
                                 </div>
                                 <div>
-                                    <label for="company" class="block text-sm font-medium text-gray-300 mb-2">Company *</label>
+                                    <label for="company" class="block text-sm font-medium text-gray-300 mb-2" data-i18n="contact.company">Company *</label>
                                     <input 
                                         id="company" 
                                         name="company" 
@@ -641,7 +686,7 @@
                             </div>
 
                             <div>
-                                <label for="phone" class="block text-sm font-medium text-gray-300 mb-2">Phone Number</label>
+                                <label for="phone" class="block text-sm font-medium text-gray-300 mb-2" data-i18n="contact.phone">Phone Number</label>
                                 <input 
                                     id="phone" 
                                     name="phone" 
@@ -655,7 +700,7 @@
                             <div class="bg-gradient-to-r from-indigo-500/15 to-purple-500/15 border border-indigo-400/40 rounded-lg p-4 backdrop-blur-sm">
                                 <label for="budget" class="block text-lg font-semibold text-white mb-2 flex items-center">
                                     <i data-feather="dollar-sign" class="w-5 h-5 text-indigo-400 mr-2"></i>
-                                    Project Investment
+                                    <span data-i18n="contact.budget_title">Project Investment</span>
                                 </label>
                                 <select 
                                     id="budget" 
@@ -664,18 +709,19 @@
                                     class="w-full px-4 py-3 bg-white/15 border border-indigo-400/50 rounded-lg text-white font-medium focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
                                     style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;"
                                 >
-                                    <option value="">Select investment range</option>
+                                    <option value="" data-i18n="budget.select_range">Select investment range</option>
                                     <option value="100-500">€100 – €500</option>
                                     <option value="500-1000">€500 – €1,000</option>
                                     <option value="2000-3000">€2,000 – €3,000</option>
                                     <option value="5000-10000">€5,000 – €10,000</option>
                                     <option value="10000+">€10,000+</option>
-                                    <option value="custom">Custom Budget Range</option>
+                                    <option value="custom" data-i18n="budget.custom">Custom Budget Range</option>
                                 </select>
                                 <input 
                                     id="customBudget" 
                                     name="customBudget" 
                                     type="text" 
+                                    data-i18n-placeholder="budget.custom_placeholder"
                                     placeholder="Specify your custom budget range..."
                                     class="w-full px-4 py-3 bg-white/10 border border-indigo-400/50 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 transition-all duration-200 mt-3 hidden font-medium" 
                                     style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;"
@@ -686,7 +732,7 @@
                             <div class="bg-gradient-to-r from-purple-500/15 to-blue-500/15 border border-purple-400/40 rounded-lg p-4 backdrop-blur-sm">
                                 <label for="projectType" class="block text-lg font-semibold text-white mb-2 flex items-center">
                                     <i data-feather="target" class="w-5 h-5 text-purple-400 mr-2"></i>
-                                    Areas of Interest *
+                                    <span data-i18n="contact.interest_title">Areas of Interest *</span>
                                 </label>
                                 <select 
                                     id="projectType" 
@@ -696,20 +742,21 @@
                                     class="w-full px-4 py-3 bg-white/15 border border-purple-400/50 rounded-lg text-white font-medium focus:ring-2 focus:ring-purple-500 transition-all duration-200"
                                     style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;"
                                 >
-                                    <option value="">Choose focus area</option>
-                                    <option value="autonomous-agents">Autonomous AI Agents</option>
-                                    <option value="workflow-automation">Workflow Automation</option>
-                                    <option value="data-intelligence">Data Intelligence & Analytics</option>
-                                    <option value="conversational-ai">Conversational AI Systems</option>
-                                    <option value="predictive-analytics">Predictive Analytics</option>
-                                    <option value="integration-platform">AI Integration Platform</option>
-                                    <option value="consultation">Strategic AI Consultation</option>
-                                    <option value="custom">Custom Project Specification</option>
+                                    <option value="" data-i18n="interest.choose_area">Choose focus area</option>
+                                    <option value="autonomous-agents" data-i18n="interest.autonomous_agents">Autonomous AI Agents</option>
+                                    <option value="workflow-automation" data-i18n="interest.workflow_automation">Workflow Automation</option>
+                                    <option value="data-intelligence" data-i18n="interest.data_intelligence">Data Intelligence & Analytics</option>
+                                    <option value="conversational-ai" data-i18n="interest.conversational_ai">Conversational AI Systems</option>
+                                    <option value="predictive-analytics" data-i18n="interest.predictive_analytics">Predictive Analytics</option>
+                                    <option value="integration-platform" data-i18n="interest.integration_platform">AI Integration Platform</option>
+                                    <option value="consultation" data-i18n="interest.consultation">Strategic AI Consultation</option>
+                                    <option value="custom" data-i18n="interest.custom">Custom Project Specification</option>
                                 </select>
                                 <input 
                                     id="customProject" 
                                     name="customProject" 
                                     type="text" 
+                                    data-i18n-placeholder="interest.custom_placeholder"
                                     placeholder="Describe your project requirements..."
                                     class="w-full px-4 py-3 bg-white/10 border border-purple-400/50 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-purple-500 transition-all duration-200 mt-3 hidden font-medium" 
                                     style="font-family: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;"
@@ -717,13 +764,14 @@
                             </div>
 
                             <div>
-                                <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Project Details *</label>
+                                <label for="message" class="block text-sm font-medium text-gray-300 mb-2" data-i18n="contact.message">Project Details *</label>
                                 <textarea 
                                     id="message" 
                                     name="message" 
                                     rows="4" 
                                     required 
                                     class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 resize-none" 
+                                    data-i18n-placeholder="contact.message_placeholder"
                                     placeholder="Describe your current challenges and what you'd like to achieve with AI..."
                                 ></textarea>
                             </div>
@@ -736,7 +784,7 @@
                                     required
                                     class="w-4 h-4 mt-1 bg-white/10 border border-white/20 rounded focus:ring-indigo-500 focus:ring-2"
                                 >
-                                <label for="agree" class="text-sm text-gray-300">
+                                <label for="agree" class="text-sm text-gray-300" data-i18n="contact.terms">
                                     I agree to the <a href="#" class="text-indigo-400 hover:text-indigo-300 underline">Terms of Service</a> and <a href="#" class="text-indigo-400 hover:text-indigo-300 underline">Privacy Policy</a>
                                 </label>
                             </div>
@@ -747,7 +795,7 @@
                             >
                                 <span class="relative z-10 flex items-center justify-center">
                                     <i data-feather="send" class="w-5 h-5 mr-2"></i>
-                                    Schedule Free Consultation
+                                    <span data-i18n="contact.submit">Schedule Free Consultation</span>
                                 </span>
                                 <div class="absolute inset-0 bg-gradient-to-r from-indigo-700 to-purple-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                             </button>
@@ -1062,8 +1110,426 @@
             }
         }
         
+        // Multi-language support
+        const translations = {
+            en: {
+                // Navigation
+                'nav.solutions': 'Solutions',
+                'nav.success_cases': 'Success Cases',
+                'nav.about_us': 'About Us',
+                'nav.get_started': 'Get Started',
+                
+                // Hero Section
+                'hero.title_part1': 'AI Agents that Empower.',
+                'hero.title_part2': 'Innovation that Lasts.',
+                'hero.description': 'We go beyond building AI — we\'re shaping the future of intelligence. Rooted in innovation, trust, and responsibility, we create technology that empowers people and businesses to achieve more.',
+                'hero.cta_primary': 'Explore Solutions',
+                'hero.cta_secondary': 'Contact Us',
+                
+                // Solutions Section
+                'solutions.title': 'AI-Powered Solutions',
+                'solutions.subtitle': 'Where intelligent automation meets advanced AI. We combine n8n\'s powerful workflow engine with cutting-edge AI models to deliver smarter, faster, and more efficient solutions that transform how your business operates.',
+                'solutions.benefit1.title': 'Faster Implementation',
+                'solutions.benefit1.desc': 'Deploy AI solutions in weeks, not months, using proven automation frameworks',
+                'solutions.benefit2.title': 'Smarter Operations',
+                'solutions.benefit2.desc': 'AI-driven decision making integrated seamlessly into your existing workflows',
+                'solutions.benefit3.title': 'Scalable Growth',
+                'solutions.benefit3.desc': 'Solutions that grow with your business, adapting to new challenges automatically',
+                
+                // Contact Form
+                'contact.title': 'Start Your AI Transformation',
+                'contact.subtitle': 'Schedule a strategic consultation with our AI experts. We\'ll analyze your business needs and design a customized roadmap for success.',
+                'contact.consultation_title': 'Request Consultation',
+                'contact.firstname': 'First Name',
+                'contact.lastname': 'Last Name',
+                'contact.email': 'Business Email',
+                'contact.company': 'Company',
+                'contact.phone': 'Phone Number',
+                'contact.budget_title': 'Project Investment',
+                'contact.interest_title': 'Areas of Interest',
+                'contact.message': 'Project Details',
+                'contact.message_placeholder': 'Describe your current challenges and what you\'d like to achieve with AI...',
+                'contact.terms': 'I agree to the Terms of Service and Privacy Policy',
+                'contact.submit': 'Schedule Free Consultation',
+                
+                // Budget Options
+                'budget.select_range': 'Select investment range',
+                'budget.custom': 'Custom Budget Range',
+                'budget.custom_placeholder': 'Specify your custom budget range...',
+                
+                // Interest Options
+                'interest.choose_area': 'Choose focus area',
+                'interest.autonomous_agents': 'Autonomous AI Agents',
+                'interest.workflow_automation': 'Workflow Automation',
+                'interest.data_intelligence': 'Data Intelligence & Analytics',
+                'interest.conversational_ai': 'Conversational AI Systems',
+                'interest.predictive_analytics': 'Predictive Analytics',
+                'interest.integration_platform': 'AI Integration Platform',
+                'interest.consultation': 'Strategic AI Consultation',
+                'interest.custom': 'Custom Project Specification',
+                'interest.custom_placeholder': 'Describe your project requirements...'
+            },
+            pt: {
+                // Navigation
+                'nav.solutions': 'Soluções',
+                'nav.success_cases': 'Casos de Sucesso',
+                'nav.about_us': 'Sobre Nós',
+                'nav.get_started': 'Começar',
+                
+                // Hero Section
+                'hero.title_part1': 'Agentes de IA que Capacitam.',
+                'hero.title_part2': 'Inovação que Perdura.',
+                'hero.description': 'Vamos além de construir IA — estamos moldando o futuro da inteligência. Enraizados na inovação, confiança e responsabilidade, criamos tecnologia que capacita pessoas e empresas a alcançar mais.',
+                'hero.cta_primary': 'Explorar Soluções',
+                'hero.cta_secondary': 'Contacte-nos',
+                
+                // Solutions Section
+                'solutions.title': 'Soluções Alimentadas por IA',
+                'solutions.subtitle': 'Onde a automação inteligente encontra IA avançada. Combinamos o poderoso motor de fluxo de trabalho do n8n com modelos de IA de ponta para entregar soluções mais inteligentes, rápidas e eficientes que transformam como seu negócio opera.',
+                'solutions.benefit1.title': 'Implementação Mais Rápida',
+                'solutions.benefit1.desc': 'Implante soluções de IA em semanas, não meses, usando frameworks de automação comprovados',
+                'solutions.benefit2.title': 'Operações Mais Inteligentes',
+                'solutions.benefit2.desc': 'Tomada de decisão orientada por IA integrada perfeitamente aos seus fluxos de trabalho existentes',
+                'solutions.benefit3.title': 'Crescimento Escalável',
+                'solutions.benefit3.desc': 'Soluções que crescem com seu negócio, adaptando-se automaticamente a novos desafios',
+                
+                // Contact Form
+                'contact.title': 'Inicie Sua Transformação com IA',
+                'contact.subtitle': 'Agende uma consulta estratégica com nossos especialistas em IA. Analisaremos suas necessidades de negócio e criaremos um roteiro personalizado para o sucesso.',
+                'contact.consultation_title': 'Solicitar Consulta',
+                'contact.firstname': 'Nome',
+                'contact.lastname': 'Sobrenome',
+                'contact.email': 'E-mail Empresarial',
+                'contact.company': 'Empresa',
+                'contact.phone': 'Telefone',
+                'contact.budget_title': 'Investimento do Projeto',
+                'contact.interest_title': 'Áreas de Interesse',
+                'contact.message': 'Detalhes do Projeto',
+                'contact.message_placeholder': 'Descreva seus desafios atuais e o que gostaria de alcançar com IA...',
+                'contact.terms': 'Concordo com os Termos de Serviço e Política de Privacidade',
+                'contact.submit': 'Agendar Consulta Gratuita',
+                
+                // Budget Options
+                'budget.select_range': 'Selecionar faixa de investimento',
+                'budget.custom': 'Faixa de Orçamento Personalizada',
+                'budget.custom_placeholder': 'Especifique sua faixa de orçamento personalizada...',
+                
+                // Interest Options
+                'interest.choose_area': 'Escolher área de foco',
+                'interest.autonomous_agents': 'Agentes de IA Autônomos',
+                'interest.workflow_automation': 'Automação de Fluxo de Trabalho',
+                'interest.data_intelligence': 'Inteligência de Dados e Análise',
+                'interest.conversational_ai': 'Sistemas de IA Conversacional',
+                'interest.predictive_analytics': 'Análise Preditiva',
+                'interest.integration_platform': 'Plataforma de Integração de IA',
+                'interest.consultation': 'Consulta Estratégica de IA',
+                'interest.custom': 'Especificação de Projeto Personalizada',
+                'interest.custom_placeholder': 'Descreva os requisitos do seu projeto...'
+            },
+            fr: {
+                // Navigation
+                'nav.solutions': 'Solutions',
+                'nav.success_cases': 'Cas de Succès',
+                'nav.about_us': 'À Propos',
+                'nav.get_started': 'Commencer',
+                
+                // Hero Section
+                'hero.title_part1': 'Agents IA qui Responsabilisent.',
+                'hero.title_part2': 'Innovation qui Perdure.',
+                'hero.description': 'Nous allons au-delà de la construction d\'IA — nous façonnons l\'avenir de l\'intelligence. Enracinés dans l\'innovation, la confiance et la responsabilité, nous créons une technologie qui permet aux personnes et aux entreprises d\'accomplir plus.',
+                'hero.cta_primary': 'Explorer les Solutions',
+                'hero.cta_secondary': 'Nous Contacter',
+                
+                // Solutions Section
+                'solutions.title': 'Solutions Alimentées par l\'IA',
+                'solutions.subtitle': 'Où l\'automatisation intelligente rencontre l\'IA avancée. Nous combinons le puissant moteur de flux de travail de n8n avec des modèles d\'IA de pointe pour livrer des solutions plus intelligentes, plus rapides et plus efficaces qui transforment le fonctionnement de votre entreprise.',
+                'solutions.benefit1.title': 'Implémentation Plus Rapide',
+                'solutions.benefit1.desc': 'Déployez des solutions IA en semaines, pas en mois, en utilisant des frameworks d\'automatisation prouvés',
+                'solutions.benefit2.title': 'Opérations Plus Intelligentes',
+                'solutions.benefit2.desc': 'Prise de décision pilotée par l\'IA intégrée de manière transparente dans vos flux de travail existants',
+                'solutions.benefit3.title': 'Croissance Évolutive',
+                'solutions.benefit3.desc': 'Solutions qui grandissent avec votre entreprise, s\'adaptant automatiquement aux nouveaux défis',
+                
+                // Contact Form
+                'contact.title': 'Commencez Votre Transformation IA',
+                'contact.subtitle': 'Planifiez une consultation stratégique avec nos experts en IA. Nous analyserons vos besoins d\'entreprise et concevrons une feuille de route personnalisée pour le succès.',
+                'contact.consultation_title': 'Demander une Consultation',
+                'contact.firstname': 'Prénom',
+                'contact.lastname': 'Nom',
+                'contact.email': 'E-mail Professionnel',
+                'contact.company': 'Entreprise',
+                'contact.phone': 'Téléphone',
+                'contact.budget_title': 'Investissement du Projet',
+                'contact.interest_title': 'Domaines d\'Intérêt',
+                'contact.message': 'Détails du Projet',
+                'contact.message_placeholder': 'Décrivez vos défis actuels et ce que vous aimeriez accomplir avec l\'IA...',
+                'contact.terms': 'J\'accepte les Conditions d\'Utilisation et la Politique de Confidentialité',
+                'contact.submit': 'Planifier une Consultation Gratuite',
+                
+                // Budget Options
+                'budget.select_range': 'Sélectionner la gamme d\'investissement',
+                'budget.custom': 'Gamme de Budget Personnalisée',
+                'budget.custom_placeholder': 'Spécifiez votre gamme de budget personnalisée...',
+                
+                // Interest Options
+                'interest.choose_area': 'Choisir le domaine de focus',
+                'interest.autonomous_agents': 'Agents IA Autonomes',
+                'interest.workflow_automation': 'Automatisation des Flux de Travail',
+                'interest.data_intelligence': 'Intelligence des Données et Analytique',
+                'interest.conversational_ai': 'Systèmes d\'IA Conversationnelle',
+                'interest.predictive_analytics': 'Analytique Prédictive',
+                'interest.integration_platform': 'Plateforme d\'Intégration IA',
+                'interest.consultation': 'Consultation Stratégique IA',
+                'interest.custom': 'Spécification de Projet Personnalisée',
+                'interest.custom_placeholder': 'Décrivez les exigences de votre projet...'
+            },
+            it: {
+                // Navigation
+                'nav.solutions': 'Soluzioni',
+                'nav.success_cases': 'Casi di Successo',
+                'nav.about_us': 'Chi Siamo',
+                'nav.get_started': 'Inizia',
+                
+                // Hero Section
+                'hero.title_part1': 'Agenti IA che Potenziano.',
+                'hero.title_part2': 'Innovazione che Dura.',
+                'hero.description': 'Andiamo oltre la costruzione di IA — stiamo plasmando il futuro dell\'intelligenza. Radicati nell\'innovazione, fiducia e responsabilità, creiamo tecnologia che potenzia persone e aziende a raggiungere di più.',
+                'hero.cta_primary': 'Esplora le Soluzioni',
+                'hero.cta_secondary': 'Contattaci',
+                
+                // Solutions Section
+                'solutions.title': 'Soluzioni Alimentate dall\'IA',
+                'solutions.subtitle': 'Dove l\'automazione intelligente incontra l\'IA avanzata. Combiniamo il potente motore di flusso di lavoro di n8n con modelli di IA all\'avanguardia per fornire soluzioni più intelligenti, veloci ed efficienti che trasformano il funzionamento della tua azienda.',
+                'solutions.benefit1.title': 'Implementazione Più Veloce',
+                'solutions.benefit1.desc': 'Implementa soluzioni IA in settimane, non mesi, utilizzando framework di automazione comprovati',
+                'solutions.benefit2.title': 'Operazioni Più Intelligenti',
+                'solutions.benefit2.desc': 'Decisioni guidate dall\'IA integrate perfettamente nei tuoi flussi di lavoro esistenti',
+                'solutions.benefit3.title': 'Crescita Scalabile',
+                'solutions.benefit3.desc': 'Soluzioni che crescono con la tua azienda, adattandosi automaticamente a nuove sfide',
+                
+                // Contact Form
+                'contact.title': 'Inizia la Tua Trasformazione IA',
+                'contact.subtitle': 'Programma una consulenza strategica con i nostri esperti di IA. Analizzeremo i tuoi bisogni aziendali e progetteremo una roadmap personalizzata per il successo.',
+                'contact.consultation_title': 'Richiedi Consulenza',
+                'contact.firstname': 'Nome',
+                'contact.lastname': 'Cognome',
+                'contact.email': 'Email Aziendale',
+                'contact.company': 'Azienda',
+                'contact.phone': 'Telefono',
+                'contact.budget_title': 'Investimento del Progetto',
+                'contact.interest_title': 'Aree di Interesse',
+                'contact.message': 'Dettagli del Progetto',
+                'contact.message_placeholder': 'Descrivi le tue sfide attuali e cosa vorresti raggiungere con l\'IA...',
+                'contact.terms': 'Accetto i Termini di Servizio e la Politica sulla Privacy',
+                'contact.submit': 'Programma Consulenza Gratuita',
+                
+                // Budget Options
+                'budget.select_range': 'Seleziona gamma di investimento',
+                'budget.custom': 'Gamma Budget Personalizzata',
+                'budget.custom_placeholder': 'Specifica la tua gamma budget personalizzata...',
+                
+                // Interest Options
+                'interest.choose_area': 'Scegli area di focus',
+                'interest.autonomous_agents': 'Agenti IA Autonomi',
+                'interest.workflow_automation': 'Automazione del Flusso di Lavoro',
+                'interest.data_intelligence': 'Intelligenza dei Dati e Analisi',
+                'interest.conversational_ai': 'Sistemi di IA Conversazionale',
+                'interest.predictive_analytics': 'Analisi Predittiva',
+                'interest.integration_platform': 'Piattaforma di Integrazione IA',
+                'interest.consultation': 'Consulenza Strategica IA',
+                'interest.custom': 'Specifica Progetto Personalizzata',
+                'interest.custom_placeholder': 'Descrivi i requisiti del tuo progetto...'
+            },
+            es: {
+                // Navigation
+                'nav.solutions': 'Soluciones',
+                'nav.success_cases': 'Casos de Éxito',
+                'nav.about_us': 'Nosotros',
+                'nav.get_started': 'Comenzar',
+                
+                // Hero Section
+                'hero.title_part1': 'Agentes de IA que Empoderan.',
+                'hero.title_part2': 'Innovación que Perdura.',
+                'hero.description': 'Vamos más allá de construir IA — estamos moldeando el futuro de la inteligencia. Arraigados en la innovación, confianza y responsabilidad, creamos tecnología que empodera a personas y empresas para lograr más.',
+                'hero.cta_primary': 'Explorar Soluciones',
+                'hero.cta_secondary': 'Contáctanos',
+                
+                // Solutions Section
+                'solutions.title': 'Soluciones Impulsadas por IA',
+                'solutions.subtitle': 'Donde la automatización inteligente se encuentra con IA avanzada. Combinamos el poderoso motor de flujo de trabajo de n8n con modelos de IA de vanguardia para entregar soluciones más inteligentes, rápidas y eficientes que transforman cómo opera tu negocio.',
+                'solutions.benefit1.title': 'Implementación Más Rápida',
+                'solutions.benefit1.desc': 'Despliega soluciones de IA en semanas, no meses, usando marcos de automatización probados',
+                'solutions.benefit2.title': 'Operaciones Más Inteligentes',
+                'solutions.benefit2.desc': 'Toma de decisiones impulsada por IA integrada perfectamente en tus flujos de trabajo existentes',
+                'solutions.benefit3.title': 'Crecimiento Escalable',
+                'solutions.benefit3.desc': 'Soluciones que crecen con tu negocio, adaptándose automáticamente a nuevos desafíos',
+                
+                // Contact Form
+                'contact.title': 'Comienza Tu Transformación de IA',
+                'contact.subtitle': 'Programa una consulta estratégica con nuestros expertos en IA. Analizaremos tus necesidades comerciales y diseñaremos una hoja de ruta personalizada para el éxito.',
+                'contact.consultation_title': 'Solicitar Consulta',
+                'contact.firstname': 'Nombre',
+                'contact.lastname': 'Apellido',
+                'contact.email': 'Correo Empresarial',
+                'contact.company': 'Empresa',
+                'contact.phone': 'Teléfono',
+                'contact.budget_title': 'Inversión del Proyecto',
+                'contact.interest_title': 'Áreas de Interés',
+                'contact.message': 'Detalles del Proyecto',
+                'contact.message_placeholder': 'Describe tus desafíos actuales y lo que te gustaría lograr con IA...',
+                'contact.terms': 'Acepto los Términos de Servicio y la Política de Privacidad',
+                'contact.submit': 'Programar Consulta Gratuita',
+                
+                // Budget Options
+                'budget.select_range': 'Seleccionar rango de inversión',
+                'budget.custom': 'Rango de Presupuesto Personalizado',
+                'budget.custom_placeholder': 'Especifica tu rango de presupuesto personalizado...',
+                
+                // Interest Options
+                'interest.choose_area': 'Elegir área de enfoque',
+                'interest.autonomous_agents': 'Agentes de IA Autónomos',
+                'interest.workflow_automation': 'Automatización de Flujo de Trabajo',
+                'interest.data_intelligence': 'Inteligencia de Datos y Análisis',
+                'interest.conversational_ai': 'Sistemas de IA Conversacional',
+                'interest.predictive_analytics': 'Análisis Predictivo',
+                'interest.integration_platform': 'Plataforma de Integración de IA',
+                'interest.consultation': 'Consulta Estratégica de IA',
+                'interest.custom': 'Especificación de Proyecto Personalizada',
+                'interest.custom_placeholder': 'Describe los requisitos de tu proyecto...'
+            },
+            de: {
+                // Navigation
+                'nav.solutions': 'Lösungen',
+                'nav.success_cases': 'Erfolgsfälle',
+                'nav.about_us': 'Über Uns',
+                'nav.get_started': 'Loslegen',
+                
+                // Hero Section
+                'hero.title_part1': 'KI-Agenten, die Befähigen.',
+                'hero.title_part2': 'Innovation, die Besteht.',
+                'hero.description': 'Wir gehen über das Bauen von KI hinaus — wir formen die Zukunft der Intelligenz. Verwurzelt in Innovation, Vertrauen und Verantwortung schaffen wir Technologie, die Menschen und Unternehmen befähigt, mehr zu erreichen.',
+                'hero.cta_primary': 'Lösungen Erkunden',
+                'hero.cta_secondary': 'Kontakt',
+                
+                // Solutions Section
+                'solutions.title': 'KI-Gestützte Lösungen',
+                'solutions.subtitle': 'Wo intelligente Automatisierung auf fortgeschrittene KI trifft. Wir kombinieren n8ns mächtige Workflow-Engine mit modernsten KI-Modellen, um intelligentere, schnellere und effizientere Lösungen zu liefern, die transformieren, wie Ihr Unternehmen arbeitet.',
+                'solutions.benefit1.title': 'Schnellere Implementierung',
+                'solutions.benefit1.desc': 'Implementieren Sie KI-Lösungen in Wochen, nicht Monaten, mit bewährten Automatisierungs-Frameworks',
+                'solutions.benefit2.title': 'Intelligentere Operationen',
+                'solutions.benefit2.desc': 'KI-gesteuerte Entscheidungsfindung nahtlos in Ihre bestehenden Workflows integriert',
+                'solutions.benefit3.title': 'Skalierbares Wachstum',
+                'solutions.benefit3.desc': 'Lösungen, die mit Ihrem Unternehmen wachsen und sich automatisch an neue Herausforderungen anpassen',
+                
+                // Contact Form
+                'contact.title': 'Starten Sie Ihre KI-Transformation',
+                'contact.subtitle': 'Planen Sie eine strategische Beratung mit unseren KI-Experten. Wir analysieren Ihre Geschäftsbedürfnisse und entwerfen eine maßgeschneiderte Roadmap für den Erfolg.',
+                'contact.consultation_title': 'Beratung Anfordern',
+                'contact.firstname': 'Vorname',
+                'contact.lastname': 'Nachname',
+                'contact.email': 'Geschäfts-E-Mail',
+                'contact.company': 'Unternehmen',
+                'contact.phone': 'Telefon',
+                'contact.budget_title': 'Projekt-Investition',
+                'contact.interest_title': 'Interessensbereiche',
+                'contact.message': 'Projekt-Details',
+                'contact.message_placeholder': 'Beschreiben Sie Ihre aktuellen Herausforderungen und was Sie mit KI erreichen möchten...',
+                'contact.terms': 'Ich stimme den Nutzungsbedingungen und der Datenschutzerklärung zu',
+                'contact.submit': 'Kostenlose Beratung Planen',
+                
+                // Budget Options
+                'budget.select_range': 'Investitionsbereich auswählen',
+                'budget.custom': 'Benutzerdefinierter Budget-Bereich',
+                'budget.custom_placeholder': 'Geben Sie Ihren benutzerdefinierten Budget-Bereich an...',
+                
+                // Interest Options
+                'interest.choose_area': 'Fokusbereich wählen',
+                'interest.autonomous_agents': 'Autonome KI-Agenten',
+                'interest.workflow_automation': 'Workflow-Automatisierung',
+                'interest.data_intelligence': 'Daten-Intelligenz & Analytik',
+                'interest.conversational_ai': 'Konversationelle KI-Systeme',
+                'interest.predictive_analytics': 'Prädiktive Analytik',
+                'interest.integration_platform': 'KI-Integrationsplattform',
+                'interest.consultation': 'Strategische KI-Beratung',
+                'interest.custom': 'Benutzerdefinierte Projekt-Spezifikation',
+                'interest.custom_placeholder': 'Beschreiben Sie Ihre Projekt-Anforderungen...'
+            }
+        };
+
+        let currentLanguage = 'en';
+
+        // Initialize language from localStorage or default to English
+        function initializeLanguage() {
+            const savedLanguage = localStorage.getItem('preferred-language') || 'en';
+            changeLanguage(savedLanguage);
+        }
+
+        // Change language function
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('preferred-language', lang);
+            
+            // Update all elements with data-i18n attributes
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // Update placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                    element.placeholder = translations[lang][key];
+                }
+            });
+            
+            // Update current language display
+            const langMap = {
+                'en': 'EN',
+                'pt': 'PT',
+                'fr': 'FR',
+                'it': 'IT',
+                'es': 'ES',
+                'de': 'DE'
+            };
+            document.getElementById('currentLang').textContent = langMap[lang];
+            
+            // Update mobile select
+            const mobileSelect = document.querySelector('#mobile-menu select');
+            if (mobileSelect) {
+                mobileSelect.value = lang;
+            }
+            
+            // Close language dropdown
+            document.getElementById('languageDropdown').classList.add('hidden');
+        }
+
+        // Toggle language dropdown function
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById('languageDropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
         // Additional background stability fixes
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize language
+            initializeLanguage();
+            
+            // Setup language dropdown toggle
+            document.getElementById('languageToggle').addEventListener('click', toggleLanguageDropdown);
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(event) {
+                const dropdown = document.getElementById('languageDropdown');
+                const toggle = document.getElementById('languageToggle');
+                
+                if (!dropdown.contains(event.target) && !toggle.contains(event.target)) {
+                    dropdown.classList.add('hidden');
+                }
+            });
+            
             // Ensure all interactive elements have proper z-index
             const interactiveElements = document.querySelectorAll('select, input, textarea, button, a');
             interactiveElements.forEach(element => {
@@ -1083,6 +1549,9 @@
     </script>
 </body>
 </html>
+
+
+
 
 
 
